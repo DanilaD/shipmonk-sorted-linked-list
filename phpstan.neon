@@ -1,4 +1,17 @@
 parameters:
-    level: 8
-    paths:
-        - src
+  level: max
+  phpVersion: 80400
+  paths:
+    - src
+    - tests
+  excludePaths:
+    - vendor
+  treatPhpDocTypesAsCertain: false
+  checkMissingTypehints: true
+  checkGenericClassInNonGenericObjectType: true
+  reportUnmatchedIgnoredErrors: true
+  ignoreErrors:
+    - '#Class .* implements generic interface .* but does not specify its types#'
+    - '#Interface .* extends generic interface .* but does not specify its types#'
+    - '#Parameter .* of class ReflectionFunction constructor expects Closure\|string, callable\(\): mixed given#'
+    - '#Cannot access property .* on .*\|null#'

@@ -1,44 +1,39 @@
 <?xml version="1.0"?>
 <ruleset name="ShipMonk SortedLinkedList">
-    <description>Code style rules for ShipMonk SortedLinkedList</description>
-    
-    <!-- Check all PHP files -->
-    <file>src</file>
-    <file>tests</file>
-    
-    <!-- Use PSR-12 standard -->
-    <rule ref="PSR12"/>
-    
-    <!-- Exclude some overly strict rules -->
-    <rule ref="Generic.Files.LineLength">
-        <properties>
-            <property name="lineLimit" value="120"/>
-            <property name="absoluteLineLimit" value="150"/>
-        </properties>
-    </rule>
-    
-    <!-- Exclude file doc comment requirements -->
-    <rule ref="Squiz.Commenting.FileComment">
-        <severity>0</severity>
-    </rule>
-    
-    <!-- Exclude class doc comment requirements -->
-    <rule ref="Squiz.Commenting.ClassComment">
-        <severity>0</severity>
-    </rule>
-    
-    <!-- Exclude function doc comment requirements -->
-    <rule ref="Squiz.Commenting.FunctionComment">
-        <severity>0</severity>
-    </rule>
-    
-    <!-- Exclude variable naming requirements -->
-    <rule ref="Squiz.NamingConventions.ValidVariableName">
-        <severity>0</severity>
-    </rule>
-    
-    <!-- Exclude method naming requirements -->
-    <rule ref="Squiz.NamingConventions.ValidFunctionName">
-        <severity>0</severity>
-    </rule>
+  <description>Clean, minimal code style rules for ShipMonk SortedLinkedList</description>
+
+  <!-- Targets -->
+  <file>src</file>
+  <file>tests</file>
+
+  <!-- Exclude non-source -->
+  <exclude-pattern>vendor/*</exclude-pattern>
+  <exclude-pattern>bin/*</exclude-pattern>
+
+  <!-- Base standard -->
+  <rule ref="PSR12"/>
+
+  <!-- Line length (reasonable limits) -->
+  <rule ref="Generic.Files.LineLength">
+    <properties>
+      <property name="lineLimit" value="120"/>
+      <property name="absoluteLineLimit" value="150"/>
+      <property name="ignoreComments" value="true"/>
+    </properties>
+  </rule>
+
+  <!-- Essential formatting rules -->
+  <rule ref="Generic.Files.EndFileNewline"/>
+  <rule ref="Generic.Files.LineEndings">
+    <properties>
+      <property name="eolChar" value="\n"/>
+    </properties>
+  </rule>
+  <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace"/>
+  <rule ref="Squiz.WhiteSpace.OperatorSpacing"/>
+
+  <!-- Relaxed documentation rules (optional) -->
+  <rule ref="Squiz.Commenting.FileComment"><severity>0</severity></rule>
+  <rule ref="Squiz.Commenting.ClassComment"><severity>0</severity></rule>
+  <rule ref="Squiz.Commenting.FunctionComment"><severity>0</severity></rule>
 </ruleset>
